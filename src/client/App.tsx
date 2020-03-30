@@ -1,19 +1,32 @@
 import React from 'react'
-import {AppBar, Toolbar} from '@material-ui/core'
+import { AppBar, Toolbar, withStyles } from '@material-ui/core'
 
+const styles = {
+	root: {
+	  flexGrow: 1,
+	},
+	appbar: {
+	  alignItems: 'center',
+	}
+  };
+  
 
-const App = () => {
-	
+const App = (props) => {
+
+	const { classes } = props;
+
 	return (
-		<>
-		<AppBar>
-			<Toolbar>
-				<>
-			</Toolbar>
-		</AppBar>
-		test
-		</>
+		<div className={classes.root}>
+			<AppBar
+				className={classes.appbar}
+				color="default"
+				position="static"
+			>
+
+				
+			</AppBar>
+		</div>
 	);
 }
 
-export default App;
+export default withStyles(styles)(App);
