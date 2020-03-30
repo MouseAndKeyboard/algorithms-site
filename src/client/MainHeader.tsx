@@ -1,13 +1,14 @@
 import React from 'react'
-import { AppBar, Toolbar, withStyles, IconButton, Typography, makeStyles } from '@material-ui/core'
+import { AppBar, Toolbar, IconButton, Typography, makeStyles } from '@material-ui/core'
 import { GitHub } from '@material-ui/icons'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	root: {
 		flexGrow: 1,
 	},
 	appbar: {
-		alignItems: 'center'
+		alignItems: 'center',
+
 	},
 	toolbar: {
 		justifyContent: 'space-between'
@@ -18,7 +19,9 @@ interface MainHeaderProps {
 	Title: string
 }
 
-const MainHeader: React.FC<MainHeaderProps> = ({Title}) => {
+const MainHeader: React.FC<MainHeaderProps> = (props) => {
+
+	const { Title } = props;
 
 	const classes = useStyles();
 
@@ -29,15 +32,12 @@ const MainHeader: React.FC<MainHeaderProps> = ({Title}) => {
 				color='default'
 				position='static'
 			>
-				<Toolbar
-					className={classes.toolbar}
-				>
-					
-					<Typography variant='h6'>
+				<Toolbar>
+					<Typography variant="h4">
 						{Title}
-					</Typography>
-					
-					<IconButton color='inherit' aria-label='GitHub'>
+          			</Typography>
+
+					<IconButton color='inherit'>
 						<GitHub />
 					</IconButton>
 
@@ -48,4 +48,4 @@ const MainHeader: React.FC<MainHeaderProps> = ({Title}) => {
 	);
 }
 
-export default App;
+export default MainHeader;
