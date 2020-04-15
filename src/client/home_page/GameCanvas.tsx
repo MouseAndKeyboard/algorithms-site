@@ -1,13 +1,13 @@
 import React from 'react'
-import { makeStyles, Paper, Grid } from '@material-ui/core';
+import { makeStyles, Paper, Grid, PaperProps, GridProps } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
     root: {
         marginTop: '5em',
         display: 'flex',
         justifyContent: 'center',
     },
-    canvas: props => ({
+    canvas: () => ({
         display: 'flex-item',
         width: '25em',
         height: '25em',
@@ -19,11 +19,19 @@ const GameCanvas: React.FC<{}> = () => {
    
     const classes = useStyles({color: '#292E37'}); 
    
+    const paperProps: PaperProps = {
+        elevation: 3,
+        className: classes.canvas
+    }
+
+    const gridProps: GridProps = {
+        container: true
+    }
     return (
         <div className={classes.root}>
-            <Paper elevation={3} className={classes.canvas}>
+            <Paper {...paperProps}>
 
-                <Grid container>
+                <Grid {...gridProps}>
                     
                 </Grid>
             

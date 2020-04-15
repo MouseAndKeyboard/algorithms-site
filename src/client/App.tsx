@@ -5,10 +5,10 @@ import GameTheoryPage from './game_theory/GameTheoryPage';
 
 const App: React.FC<{}> = () => {
     return (
-        <BrowserRouter>
-            <Route path='/' component={Home} />
-            <Route path='/gametheory/' component={GameTheoryPage} />
-        </ BrowserRouter>
+        <>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/gametheory' component={GameTheoryPage} />
+        </>
     );
 }
 
