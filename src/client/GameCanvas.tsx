@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex-item',
         width: '25em',
         height: '25em',
-        background: props.color,
+        background: 'black',
 	})
 }));
 

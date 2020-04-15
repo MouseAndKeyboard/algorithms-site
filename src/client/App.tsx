@@ -1,13 +1,13 @@
 import React from 'react'
-import MainHeader from './MainHeader';
-import GameCanvas from './GameCanvas';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import Home from './Home';
 
 const App: React.FC<{}> = () => {
     return (
-        <>
-            <MainHeader Title='Algorithms' />
-            <GameCanvas />
-        </>
+        <BrowserRouter>
+            <Route path='/' component={Home} />
+            
+        </ BrowserRouter>
     );
 }
 
