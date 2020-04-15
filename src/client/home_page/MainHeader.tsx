@@ -1,8 +1,9 @@
 import React from 'react'
-import { AppBar, Toolbar, IconButton, Typography, makeStyles } from '@material-ui/core'
+import { AppBar, Toolbar, IconButton, Typography, makeStyles, AppBarProps, TypographyProps, IconButtonProps } from '@material-ui/core/index'
+
 import { GitHub } from '@material-ui/icons'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((styles: {}) => ({
 	root: {
 		flexGrow: 1,
 	},
@@ -23,21 +24,33 @@ const MainHeader: React.FC<MainHeaderProps> = (props) => {
 
 	const { Title } = props;
 
-	const classes = useStyles();
+	const classes = useStyles({});
+
+	const appBarProps: AppBarProps = {
+		className: classes.appbar,
+		color: 'default',
+		position: 'static'
+	}
+
+	const typographyProps: TypographyProps = {
+		variant: 'h4'
+	}
+
+	const githubButtonProps: IconButtonProps = {
+		color: 'inherit'
+	}
 
 	return (
 		<div className={classes.root}>
 			<AppBar
-				className={classes.appbar}
-				color='default'
-				position='static'
+				{...appBarProps}
 			>
 				<Toolbar>
-					<Typography variant="h4">
+					<Typography {...typographyProps}>
 						{Title}
           			</Typography>
 
-					<IconButton color='inherit'>
+					<IconButton {...githubButtonProps}>
 						<GitHub />
 					</IconButton>
 
